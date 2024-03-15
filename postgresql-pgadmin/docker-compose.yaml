@@ -1,23 +1,32 @@
 version: '3.7'
 
 services:
+  # Define the pgadmin service
   pgadmin:
+    # Use the latest dpage/pgadmin4 image
     image: dpage/pgadmin4:latest
+    # Set the container name
     container_name: pgadmin_server
+    # Define environment variables for pgAdmin
     environment:
-      PGADMIN_DEFAULT_EMAIL: ${PGADMIN_DEFAULT_EMAIL}
-      PGADMIN_DEFAULT_PASSWORD: ${PGADMIN_DEFAULT_PASSWORD}
-      PGADMIN_LISTEN_PORT: 80
-      PGADMIN_SERVER_JSON_FILE: /pgadmin4/servers.json
+      PGADMIN_DEFAULT_EMAIL: ${PGADMIN_DEFAULT_EMAIL}   # Set default email
+      PGADMIN_DEFAULT_PASSWORD: ${PGADMIN_DEFAULT_PASSWORD}  # Set default password
+      PGADMIN_LISTEN_PORT: 80  # Set pgAdmin listen port
+      PGADMIN_SERVER_JSON_FILE: /pgadmin4/servers.json  # Specify server configuration file path
+    # Expose port 8080 on the host and map it to port 80 in the container
     ports:
       - "8080:80"
+    # Mount the servers.json file from the host to the container as read-only
     volumes:
       - ./servers.json:/pgadmin4/servers.json:ro
-      - /usr/share/zoneinfo/Europe/Kiev:/etc/localtime:ro
+      - /usr/share/zoneinfo/Europe/Kiev:/etc/localtime:ro  # Mount the Europe/Kiev time zone file
+    # Ensure the container restarts automatically
     restart: always
+    # Connect the container to the default bridge network
     networks:
       - default
 
+# Define the default bridge network
 networks:
   default:
     driver: bridge
