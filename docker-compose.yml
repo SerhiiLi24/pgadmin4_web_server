@@ -19,7 +19,7 @@ services:
     # Mount the servers.json file from the host to the container as read-only
     volumes:
       - ./servers.json:/pgadmin4/servers.json:ro
-    # - /usr/share/zoneinfo/Europe/Kiev:/etc/localtime:ro  # Mount the Europe/Kiev time zone file
+      - /etc/localtime:/etc/localtime:ro  # Share time from host to container
     # Ensure the container restarts automatically
     restart: always
     # Connect the container to the default bridge network
