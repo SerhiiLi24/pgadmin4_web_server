@@ -19,11 +19,7 @@ services:
     # Mount the servers.json file and additional_users.json from the host to the container
     volumes:
       - ./servers.json:/pgadmin4/servers.json:ro
-<<<<<<< HEAD
       - /etc/localtime:/etc/localtime:ro  # Share time from host to container
-=======
-      - /usr/share/zoneinfo/Europe/Kiev:/etc/localtime:ro  # Mount the Europe/Kiev time zone file
->>>>>>> parent of 8cfd599 (Rm timezone)
     # Ensure the container restarts automatically
     restart: always
     # Connect the container to the default bridge network
