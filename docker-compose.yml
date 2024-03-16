@@ -19,7 +19,6 @@ services:
     # Mount the servers.json file and additional_users.json from the host to the container
     volumes:
       - ./servers.json:/pgadmin4/servers.json:ro
-      - ./additional_users.json:/pgadmin4/additional_users.json:ro  # Map additional users JSON file
       - /etc/localtime:/etc/localtime:ro  # Share time from host to container
     # Ensure the container restarts automatically
     restart: always
