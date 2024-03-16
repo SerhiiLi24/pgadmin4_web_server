@@ -1,2 +1,2 @@
-# Postgresql_Orthanc
- Orthanc optimized
+# Pgadmin4 docker container for Postgresql and Orthanc
+
