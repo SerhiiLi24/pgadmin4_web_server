@@ -11,16 +11,9 @@ services:
     environment:
       PGADMIN_DEFAULT_EMAIL: ${PGADMIN_DEFAULT_EMAIL}   # Set default email
       PGADMIN_DEFAULT_PASSWORD: ${PGADMIN_DEFAULT_PASSWORD}  # Set default password
-      PGADMIN_DEFAULT_EMAIL1: ${PGADMIN_DEFAULT_EMAIL1}   # Set additional email 1
-      PGADMIN_DEFAULT_PASSWORD1: ${PGADMIN_DEFAULT_PASSWORD1}  # Set additional password 1
-      PGADMIN_DEFAULT_EMAIL2: ${PGADMIN_DEFAULT_EMAIL2}   # Set additional email 2
-      PGADMIN_DEFAULT_PASSWORD2: ${PGADMIN_DEFAULT_PASSWORD2}  # Set additional password 2
-      PGADMIN_DEFAULT_EMAIL3: ${PGADMIN_DEFAULT_EMAIL3}   # Set additional email 3
-      PGADMIN_DEFAULT_PASSWORD3: ${PGADMIN_DEFAULT_PASSWORD3}  # Set additional password 3
-      PGADMIN_DEFAULT_EMAIL4: ${PGADMIN_DEFAULT_EMAIL4}   # Set additional email 4
-      PGADMIN_DEFAULT_PASSWORD4: ${PGADMIN_DEFAULT_PASSWORD4}  # Set additional password 4
-      PGADMIN_LISTEN_PORT: 80  # Set pgAdmin listen port
       PGADMIN_SERVER_JSON_FILE: /pgadmin4/servers.json  # Specify server configuration file path
+      PGADMIN_ADDITIONAL_EMAILS: ${PGADMIN_ADDITIONAL_EMAILS}   # Additional email addresses
+      PGADMIN_ADDITIONAL_PASSWORDS: ${PGADMIN_ADDITIONAL_PASSWORDS}  # Additional passwords
     # Expose port 8080 on the host and map it to port 80 in the container
     ports:
       - "8080:80"
